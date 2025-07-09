@@ -1,4 +1,4 @@
-package accesspoint.accesspoint;
+package accesspoint;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
