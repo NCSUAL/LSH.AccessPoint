@@ -1,0 +1,53 @@
+spring:
+    application:
+        name: accesspoint
+    
+    cloud:
+        gateway:
+            server:
+                webmvc:
+                    routes:
+                    - id: urbanRide
+                      uri: http://localhost:8082
+                      predicates:
+                      - Path=/urbanRide/**
+                      filters:
+                      - StripPrefix=1
+                                                              
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/user?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul 
+        username: root
+        password: dltjrgus123
+
+    jpa:
+        show-sql: true
+
+        hibernate:
+            ddl-auto: true
+
+        properties:
+            hibernate:
+                "[format_sql]": true
+    
+
+springdoc:
+  swagger-ui:
+    use-root-path: true
+
+    #swagger 기본 경로 변경
+    #/swagger-ui/index.html -> /swagger
+    path: /swagger
+    urls:
+    - name: accesspoint
+      url: /v3/api-docs
+
+    - name: urbanRide
+      url: /urbanRide/v3/api-docs 
+
+    # 기본 선택값
+    urls-primary-name: accesspoint   
+
+server:
+    port: 8000
+    address: 0.0.0.0
