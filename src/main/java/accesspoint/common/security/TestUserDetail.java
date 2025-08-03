@@ -10,12 +10,11 @@ import accesspoint.domain.TestUser;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class TestUserDetails implements UserDetails, Serializable{
+public class TestUserDetail implements UserDetails, Serializable{
 
     private static final long serialVersionUID = 12345673234L;
 
     private final TestUser testUser;
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

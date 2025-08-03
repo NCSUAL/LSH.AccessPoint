@@ -5,12 +5,11 @@ import java.util.stream.Stream;
 
 import org.springframework.stereotype.Component;
 
-import accesspoint.common.Role;
+import accesspoint.constant.Role;
 import jakarta.persistence.AttributeConverter;
 
 @Component
 public class RoleAttributeConverter implements AttributeConverter<Role, String>{
-
     @Override
     public String convertToDatabaseColumn(Role attribute) {
         return attribute.getRole();

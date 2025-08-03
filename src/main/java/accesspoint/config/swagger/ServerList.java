@@ -10,7 +10,7 @@ import lombok.Getter;
 public enum ServerList {
 
     ORIGIN_SERVER("본 서버", new Server()
-        .url("http://3.37.125.9:4658")
+        .url("http://3.37.125.9:8808")
         .description("본 서버")
     );
 

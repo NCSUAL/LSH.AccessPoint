@@ -1,7 +1,8 @@
 package accesspoint.domain;
 
-import accesspoint.common.Role;
 import accesspoint.common.converter.RoleAttributeConverter;
+import accesspoint.common.security.TestUserDetail;
+import accesspoint.constant.Role;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -39,4 +40,8 @@ public class TestUser {
     private String email;
 
     private String etc;
+
+    public TestUserDetail ofUserDetail(){
+        return new TestUserDetail(this);
+    }
 }
