@@ -8,9 +8,11 @@ spring:
                 webmvc:
                     routes:
                     - id: urbanRide
-                      uri: http://localhost:8082/
+                      uri: http://localhost:8082
                       predicates:
                       - Path=/urbanRide/**
+                      filters:
+                      - StripPrefix
                                                               
     datasource:
         driver-class-name: com.mysql.jdbc.Driver
@@ -22,12 +24,30 @@ spring:
         show-sql: true
 
         hibernate:
-            ddl-auto: true
+            ddl-auto: update
 
         properties:
             hibernate:
                 "[format_sql]": true
+    
+
+springdoc:
+  swagger-ui:
+    use-root-path: true
+
+    #swagger 기본 경로 변경
+    #/swagger-ui/index.html -> /swagger
+    path: /swagger
+    urls:
+    - name: accesspoint
+      url: /v3/api-docs
+
+    - name: urbanRide
+      url: /urbanRide/v3/api-docs 
+
+    # 기본 선택값
+    urls-primary-name: accesspoint   
 
 server:
-    port: 8080
+    port: 8808
     address: 0.0.0.0
